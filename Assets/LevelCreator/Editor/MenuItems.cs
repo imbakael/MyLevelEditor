@@ -11,10 +11,10 @@ public static class MenuItems {
 
     [MenuItem("Tools/Create PaletteItems")]
     public static void CreateAsset() {
-        PaletteCollection paletteCollection = EditorUtils.GetScriptableObjectAsset<PaletteCollection>("Assets/Resources/PaletteCollection.asset");
-        List<PaletteItem.Category> categories = MyTools.GetListFromEnum<PaletteItem.Category>();
+        PaletteCollection paletteCollection = LevelEditorUtils.GetScriptableObjectAsset<PaletteCollection>("Assets/Resources/PaletteCollection.asset");
+        List<PaletteItem.Category> categories = LevelUtils.GetListFromEnum<PaletteItem.Category>();
         foreach (PaletteItem.Category item in categories) {
-            List<Sprite> sprites = EditorUtils.GetAssets<Sprite>("Assets/Resources/MapRes/" + item);
+            List<Sprite> sprites = LevelEditorUtils.GetAssets<Sprite>("Assets/Resources/MapRes/" + item);
             for (int i = 0; i < sprites.Count; i++) {
                 Sprite sprite = sprites[i];
                 PaletteItem p = paletteCollection.GetPaletteItemBySprite(sprite);

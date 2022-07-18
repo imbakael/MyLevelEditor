@@ -19,7 +19,7 @@ public class NewLevelWindow : ScriptableWizard {
             Directory.CreateDirectory(dir);
         }
         SaveItem saveItem = SaveItem.GetDefaultSaveItem(col, row);
-        string json = MyTools.GetSerializeJson(saveItem);
+        string json = LevelUtils.GetSerializeJson(saveItem);
         File.WriteAllText(dir + levelName + ".txt", json);
     }
 

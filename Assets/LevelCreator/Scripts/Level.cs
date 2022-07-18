@@ -20,7 +20,7 @@ public class Level : MonoBehaviour
     public List<PaletteItem.Category> Categories {
         get {
             if (categories == null) {
-                categories = MyTools.GetListFromEnum<PaletteItem.Category>();
+                categories = LevelUtils.GetListFromEnum<PaletteItem.Category>();
             }
             return categories;
         }
@@ -198,7 +198,7 @@ public class Level : MonoBehaviour
         string fullPath = Application.persistentDataPath + DIRECTORY + fileName;
         if (File.Exists(fullPath)) {
             string json = File.ReadAllText(fullPath);
-            return MyTools.DeserializeObject<SaveItem>(json);
+            return LevelUtils.DeserializeObject<SaveItem>(json);
         }
         return SaveItem.GetDefaultSaveItem(2, 2);
     }

@@ -9,7 +9,7 @@ public class SaveItem {
     public Dictionary<PaletteItem.Category, List<TileOffset>> allOffsets;
 
     public static SaveItem GetDefaultSaveItem(int col, int row) {
-        List<PaletteItem.Category> categories = MyTools.GetListFromEnum<PaletteItem.Category>();
+        List<PaletteItem.Category> categories = LevelUtils.GetListFromEnum<PaletteItem.Category>();
         return
             new SaveItem {
                 levelId = 1,

@@ -36,8 +36,8 @@ public class PaletteWindow : EditorWindow
     }
 
     private void InitCategories() {
-        categories = MyTools.GetListFromEnum<PaletteItem.Category>();
-        categoryLabels = EditorUtils.GetEnumName(categories);
+        categories = LevelUtils.GetListFromEnum<PaletteItem.Category>();
+        categoryLabels = LevelEditorUtils.GetEnumName(categories);
     }
 
     private void InitContent() {
@@ -46,7 +46,7 @@ public class PaletteWindow : EditorWindow
         categorizedItems = new Dictionary<PaletteItem.Category, List<PaletteItem>>();
         previews = new Dictionary<PaletteItem, Texture2D>();
 
-        PaletteCollection paletteCollection = EditorUtils.GetScriptableObjectAsset<PaletteCollection>("Assets/Resources/PaletteCollection.asset");
+        PaletteCollection paletteCollection = LevelEditorUtils.GetScriptableObjectAsset<PaletteCollection>("Assets/Resources/PaletteCollection.asset");
         foreach (PaletteItem.Category category in categories) {
             List<PaletteItem> paletteItems = paletteCollection.GetPaletteItemByCategory(category);
             items.AddRange(paletteItems);

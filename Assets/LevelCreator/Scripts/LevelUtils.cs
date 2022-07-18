@@ -1,10 +1,8 @@
 using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public static class MyTools {
+public static class LevelUtils {
     public static List<T> GetListFromEnum<T>() {
         var result = new List<T>();
         Array enums = Enum.GetValues(typeof(T));

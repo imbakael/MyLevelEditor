@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public static class EditorUtils {
+public static class LevelEditorUtils {
 
     public static List<T> GetAssets<T>(string path) where T : Object {
         var result = new List<T>();
@@ -38,4 +38,5 @@ public static class EditorUtils {
         }
         return item;
     }
+    
 }

@@ -56,9 +56,9 @@ public class LevelInspector : Editor
     }
 
     private void InitMode() {
-        categoryLabels = EditorUtils.GetEnumName(level.Categories);
-        List<Mode> modes = MyTools.GetListFromEnum<Mode>();
-        modeLabels = EditorUtils.GetEnumName(modes);
+        categoryLabels = LevelEditorUtils.GetEnumName(level.Categories);
+        List<Mode> modes = LevelUtils.GetListFromEnum<Mode>();
+        modeLabels = LevelEditorUtils.GetEnumName(modes);
     }
 
     private void UpdateCurrentPieceInstance(PaletteItem item, Texture2D preview) {
@@ -297,7 +297,7 @@ public class LevelInspector : Editor
         } else {
             spriteRendererInspected = level.CategoryPieces[currentCategory][col + row * level.TotalColumns];
             Sprite sprite = spriteRendererInspected.sprite;
-            paletteItemEdited = EditorUtils.GetScriptableObjectAsset<PaletteCollection>("Assets/Resources/PaletteCollection.asset").GetPaletteItemBySprite(sprite);
+            paletteItemEdited = LevelEditorUtils.GetScriptableObjectAsset<PaletteCollection>("Assets/Resources/PaletteCollection.asset").GetPaletteItemBySprite(sprite);
         }
         Repaint();
     }
@@ -457,7 +457,7 @@ public class LevelInspector : Editor
             allOffsets = level.AllOffsets
         };
 
-        string json = MyTools.GetSerializeJson(saveItem);
+        string json = LevelUtils.GetSerializeJson(saveItem);
         File.WriteAllText(dir + level.fileName, json);
     }
 
